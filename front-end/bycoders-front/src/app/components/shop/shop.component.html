@@ -1,0 +1,17 @@
+<h1 class="h1">Shop</h1>
+<div class="content">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>-</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shop of shops">
+          <th>{{ shop.shopName }}</th>
+          <th><button (click)="onDetail(shop)">Detalhe</button></th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
