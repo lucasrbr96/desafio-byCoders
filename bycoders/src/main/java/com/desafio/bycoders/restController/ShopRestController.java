@@ -40,7 +40,7 @@ public class ShopRestController {
         return ResponseEntity.ok(new InfoShopDTO(amountTotal, transactionsInfo));
     }
 
-    @GetMapping()
+    @GetMapping("")
     public ResponseEntity<List<Shop>> getAll() {
         return ResponseEntity.ok(shopService.getAll());
     }

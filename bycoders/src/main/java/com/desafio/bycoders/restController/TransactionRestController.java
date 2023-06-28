@@ -18,7 +18,7 @@ public class TransactionRestController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> upload(@RequestParam MultipartFile file) {
+    public ResponseEntity<String> upload(@RequestBody MultipartFile file) {
         if(file.isEmpty()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Empty file");
         }
