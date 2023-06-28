@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Scanner;
@@ -35,7 +34,7 @@ public class TransactionService implements ITransactionService {
                String line = scanner.nextLine();
 
                TypeOperationEnum typeOperationEnum = extractTypeOperation(line);
-               Shop shop = extractShop(line);
+               Shop shop = extractShopAndCreate(line);
 
                Transaction transaction = new Transaction(line, typeOperationEnum, shop);
 
@@ -49,7 +48,7 @@ public class TransactionService implements ITransactionService {
        }
     }
 
-    private Shop extractShop(String line) {
+    private Shop extractShopAndCreate(String line) throws Exception {
         String shopName = line.substring(62, 80).trim();
         return findOrCreateShop(shopName);
     }
@@ -60,7 +59,7 @@ public class TransactionService implements ITransactionService {
         return typeOperationEnum;
     }
 
-    private Shop findOrCreateShop(String shopName){
+    private Shop findOrCreateShop(String shopName) throws Exception {
        return shopService.findOrCreateShop(shopName);
     }
 

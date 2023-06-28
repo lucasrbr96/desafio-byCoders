@@ -3,6 +3,7 @@ package com.desafio.bycoders.service.implemantion;
 import com.desafio.bycoders.domain.model.Shop;
 import com.desafio.bycoders.repository.ShopRepository;
 import com.desafio.bycoders.service.IShopService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -19,11 +20,18 @@ public class ShopService implements IShopService {
     }
 
     @Override
-    public Shop findOrCreateShop(String shopName) {
+    public Shop findOrCreateShop(String shopName) throws Exception {
+        validateShopName(shopName);
         if(existsShop(shopName)){
             return findByName(shopName);
         }
         return new Shop(null, shopName, BigDecimal.ZERO);
+    }
+
+    private void validateShopName(String shopName) throws Exception {
+        if (StringUtils.isBlank(shopName)){
+            throw new Exception("Empty Shop name");
+        }
     }
 
     public void save(Shop shop){
