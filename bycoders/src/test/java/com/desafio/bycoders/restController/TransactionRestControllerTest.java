@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ExtendWith(SpringExtension.class)
 @AutoConfigureMockMvc
 @WebMvcTest(controllers = TransactionRestController.class)
-public class TransactionRestControllerTest {
+class TransactionRestControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -40,6 +40,5 @@ public class TransactionRestControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.multipart("/transaction/upload")
                         .file("file", multipartFile.getBytes()))
                 .andExpect(status().isCreated());
-
     }
 }
