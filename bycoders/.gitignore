@@ -5,6 +5,7 @@ HELP.md
 /target/
 */target/**
 **/target/**
+target/
 
 ### STS ###
 .apt_generated

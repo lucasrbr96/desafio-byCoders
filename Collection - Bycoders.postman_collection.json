@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "a716a398-11ea-402a-bc14-e983c073158b",
+		"name": "Collection - Bycoders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "shop",
+			"item": [
+				{
+					"name": "Get amount a shop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/shop/LOJA DO Ó - MATRIZ/amount",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"LOJA DO Ó - MATRIZ",
+								"amount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all shop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/shop/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Info Shop",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/shop/LOJA DO Ó - MATRIZ/info",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"LOJA DO Ó - MATRIZ",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/projeto/ByCoders-Desafio/ByCoders-Desafio-main/bycoders/src/test/java/com/desafio/bycoders/resource/CNAB.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/transaction/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transaction",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
