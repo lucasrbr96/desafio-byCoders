@@ -6,6 +6,7 @@ import com.desafio.bycoders.domain.model.Shop;
 import com.desafio.bycoders.domain.model.Transaction;
 import com.desafio.bycoders.service.IShopService;
 import com.desafio.bycoders.service.implemantion.TransactionService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +26,14 @@ public class ShopRestController {
     }
 
     @GetMapping("/{shopName}/amount")
+    @ApiOperation(value = "Get the total amount")
     public ResponseEntity<BigDecimal> getAmount(@PathVariable("shopName") String shopName) {
         BigDecimal amountTotal = shopService.amountTotalByShopName(shopName);
         return ResponseEntity.ok(amountTotal);
     }
 
     @GetMapping("/{shopName}/info")
+    @ApiOperation(value = "Get all the information")
     public ResponseEntity<InfoShopDTO> getInfo(@PathVariable("shopName") String shopName) {
         BigDecimal amountTotal = shopService.amountTotalByShopName(shopName);
         List<Transaction> transactions = transactionService.transactions(shopName);
@@ -41,6 +44,7 @@ public class ShopRestController {
     }
 
     @GetMapping("")
+    @ApiOperation(value = "Get all shop")
     public ResponseEntity<List<Shop>> getAll() {
         return ResponseEntity.ok(shopService.getAll());
     }

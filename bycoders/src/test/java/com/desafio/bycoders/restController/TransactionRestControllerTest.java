@@ -1,6 +1,7 @@
 package com.desafio.bycoders.restController;
 
 import com.desafio.bycoders.service.implemantion.TransactionService;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ class TransactionRestControllerTest {
     @MockBean
     private TransactionService service;
     @Test
+    @DisplayName("transaction upload")
     void upload() throws Exception {
         MultipartFile multipartFile = new MockMultipartFile("file.txt",
                 new FileInputStream("src/test/java/com/desafio/bycoders/resource/CNAB.txt"));

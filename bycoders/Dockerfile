@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk11:alpine
-EXPOSE 8080
-COPY ./target/*.jar app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM maven:3.6.3-jdk-11
+WORKDIR /app
+COPY . .
+RUN mvn clean install
+CMD mvn spring-boot:run

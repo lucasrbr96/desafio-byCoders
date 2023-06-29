@@ -1,12 +1,11 @@
 package com.desafio.bycoders.restController;
 
 import com.desafio.bycoders.service.ITransactionService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 
 @RestController
 @RequestMapping("/transaction")
@@ -18,6 +17,7 @@ public class TransactionRestController {
     }
 
     @PostMapping("/upload")
+    @ApiOperation(value = "transaction upload")
     public ResponseEntity<String> upload(@RequestBody MultipartFile file) {
         if(file.isEmpty()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Empty file");
